@@ -1,1 +1,94 @@
 https://tagilog.tistory.com/377
+왕초보를 위한 깃허브 사용법
+
+git status	저장소 상태
+git add	파일이나 폴더를 인덱스에 추가	git add [file_pattern]
+git commit	인덱스에 추가된 파일이나 폴더의 내용을 저장소에 쓸 때	git commit -am "A first commit"
+git branch	브랜치에 다양한  작업
+git branch [branch-name]	브랜치 만들기
+git branch	브랜치 목록보기
+git branch -d [branch-name]	지정한 브랜치를 삭제
+git checkout	로컬 저장소의 브랜치를 전환할 때 사용	git checkout [branch-name]
+git log	로컬 저장소의 커밋 히스토리를 탐색	git log -n 10
+git grep	저장소의 파일 내용에서 검삭하고자 할 때	git grep "검색단어"
+git clone	기존 원격저장소를 로컬에 다운로드 하기 위한 명령어	git clone [url]
+git remote	원격 저장소를 조작하는데 사용
+git remote	원격 저장소의 이름 목록을 표시
+git remote -v	원격 저장소에 대한 자세한 목록보기
+git remote add [name] [url]	원격 저장소를 추가
+git remote rm [name]	원격 저장소를 제거
+git reset	로컬 저장소의 커밋을 취소하기 위한 명령	git reset -soft HEAD ^
+git merge	현재 브랜치에 다른 지점에서 변경사항을 병헙	git checkout master git merge big-fix
+git pull	원격 브랜치의 변경사항을 캡쳐하기 위해 사용	git checkout master git pull origin master
+
+#--
+C:\Users\kDevSecOps>cd c:/bin
+
+c:\bin>cd py
+
+c:\bin\PY>mkdir helloworld
+
+c:\bin\PY>cd helloworld
+
+c:\bin\PY\helloworld>git init
+Initialized empty Git repository in C:/bin/PY/helloworld/.git/
+
+c:\bin\PY\helloworld>git add hello.html
+
+c:\bin\PY\helloworld>git commit -m "new file"
+[master (root-commit) ae5ac5a] new file
+ 1 file changed, 10 insertions(+)
+ create mode 100644 hello.html
+
+c:\bin\PY\helloworld>git status
+On branch master
+nothing to commit, working tree clean
+
+c:\bin\PY\helloworld>git remote add origin https://github.com/devsecops0/helloworld
+
+c:\bin\PY\helloworld>git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 330 bytes | 330.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/DevSecOps0/HelloWorld.git
+To https://github.com/devsecops0/helloworld
+ * [new branch]      master -> master
+
+c:\bin\PY\helloworld>git branch
+* master
+
+c:\bin\PY\helloworld>git branch subdir01
+
+c:\bin\PY\helloworld>git checkout subdir01
+Switched to branch 'subdir01'
+
+c:\bin\PY\helloworld>git branch
+  master
+* subdir01
+
+c:\bin\PY\helloworld>git add hello2.html
+
+c:\bin\PY\helloworld>git commit -m "add file hello2"
+[subdir01 7570812] add file hello2
+ 1 file changed, 11 insertions(+)
+ create mode 100644 hello2.html
+
+c:\bin\PY\helloworld>git push origin subdir01
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 409 bytes | 409.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/DevSecOps0/HelloWorld.git
+remote:
+remote: Create a pull request for 'subdir01' on GitHub by visiting:
+remote:      https://github.com/DevSecOps0/HelloWorld/pull/new/subdir01
+remote:
+To https://github.com/devsecops0/helloworld
+ * [new branch]      subdir01 -> subdir01
